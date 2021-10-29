@@ -8,7 +8,10 @@ just the steps, not much explanation
 * `npm i @slack/bolt`
 * `npm i dotenv`
 * `touch .env`
-* start slack app
+* create slack app
+    * add to development slack
+    * first choose scopes in oauth and permissions tab
+    * then install app
 * add to .env
 ```
 
