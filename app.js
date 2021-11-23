@@ -16,6 +16,7 @@ const app = new App({
 app.message('hello', messageHandler.hello);
 
 app.command('/switch', slashHandler.switch);
+app.command('/a8ksync', slashHandler.a8ksync);
 
 (async () => {
   // Start your app

@@ -23,13 +23,14 @@ module.exports.syncToClock = async (options) => {
     myAtem.on('info', console.log)
     myAtem.on('error', console.error)
     myAtem.connect(options.atemIp)
-    myAtem.on('connected', () => {
+    myAtem.on('connected', async () => {
         let now = new Date()
         myAtem.setTime(now.getHours(), now.getMinutes(), (now.getSeconds()+1), 7).then(() => {
             // console.log(`new ATEM Time is ${JSON.stringify(myAtem.state.info.lastTime, null, 4)}`);
             console.log(`now ending the connection`);
             myAtem.disconnect()
         });
+        await options.cb(`${now.toLocaleString()}`)
     })
     myAtem.on('disconnected', () => {
         console.log(`now disconnected from the ATEM. bye.`);
