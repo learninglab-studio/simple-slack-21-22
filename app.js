@@ -13,6 +13,7 @@ const app = new App({
 });
 
 app.message('hello', messageHandler.hello);
+app.message(/.*/, async ({ message })=> {console.log(JSON.stringify(message, null, 4))});
 
 app.command('/switch', slashHandler.switch);
 app.command('/a8ksync', slashHandler.a8ksync);
